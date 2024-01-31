@@ -2,12 +2,26 @@
 
 import Image from "next/image";
 import IconSmall from "./IconSmall";
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import Success from "./Success";
 import desktopImg from "../../public/illustration-sign-up-desktop.svg";
+import mobileImg from "../../public/illustration-sign-up-mobile.svg";
 
 export default function MainCard() {
   const [subscribe, setSubscribe] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const handleResize = () => {
+    if (window.innerWidth < 720) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+  });
 
   function handleClick() {
     setSubscribe(!subscribe);
@@ -15,10 +29,60 @@ export default function MainCard() {
 
   return (
     <>
-      {subscribe ? (
+      {isMobile ? (
+        subscribe ? (
+          <Success handleClick={handleClick} email={"Test"} />
+        ) : (
+          <div className="flex flex-col bg-white w-full h-full">
+            <div className="">
+              <Image src={mobileImg} className="w-full" />
+            </div>
+            <div className="flex justify-between h-full flex-col p-8 text-xs text-char-grey">
+              <h1 className="text-4xl font-bold text-char-grey mt-3">
+                Stay updated!
+              </h1>
+              <p className="text-[16px] leading-relaxed">
+                Join 60,000+ product managers receiving monthly updates on:
+              </p>
+              <ul className="text-[16px] leading-loose">
+                <li className="flex items-center gap-2 mb-1">
+                  <IconSmall width={20} height={20} />
+                  <span>Product Discovery and building what matters</span>
+                </li>
+                <li className="flex items-center gap-2 mb-1">
+                  <IconSmall width={20} height={20} />
+                  <span>Measuring to ensure updates are a success</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <IconSmall width={20} height={20} />
+                  <span>And much more!</span>
+                </li>
+              </ul>
+              <form className="flex flex-col w-full" action={handleClick}>
+                <label className="font-bold text-[12px] mb-3" htmlFor="">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="email@company.com"
+                  required
+                  className="border-reg-grey border px-4 py-2 h-14 w-full rounded-md mb-6"
+                />
+                <button
+                  className="bg-drk-grey active:bg-grad-test text-white text-[16px] px-4 py-2 h-14 rounded-md"
+                  type="submit"
+                >
+                  Subscribe to monthly newsletter
+                </button>
+              </form>
+            </div>
+          </div>
+        )
+      ) : subscribe ? (
         <Success handleClick={handleClick} email={"Test"} />
       ) : (
-        <div className="flex bg-white max-w-xl p-4 rounded-3xl">
+        <div className="flex bg-white w-3/5 p-4 rounded-3xl">
           <div className="flex basis-4/5 justify-center flex-col gap-5 mr-2 p-5 text-xs text-char-grey">
             {/* Left Side */}
             <h1 className="text-4xl font-bold self-center text-char-grey">
