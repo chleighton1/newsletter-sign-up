@@ -1,5 +1,5 @@
 import React from "react";
-import IconLarge from "@/app/components/IconLarge";
+import IconLarge from "./IconLarge";
 
 export default function Success(props) {
   return (
@@ -11,7 +11,7 @@ export default function Success(props) {
       <p className="text-xs text-char-grey">{`A confirmation email has been sent to ${props.email}. Please open it and click the button inside to confirm your subscription.`}</p>
       <button
         onClick={props.handleClick}
-        className="bg-drk-grey text-white px-4 py-2 rounded-md"
+        className="bg-drk-grey active:bg-grad-test text-white px-4 py-2 rounded-md"
       >
         Dismiss message
       </button>

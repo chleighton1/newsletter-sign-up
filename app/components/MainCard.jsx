@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import desktopImg from "@/public/illustration-sign-up-desktop.svg";
 import IconSmall from "./IconSmall";
 import { React, useState } from "react";
-import Success from "@/app/components/Success";
+import Success from "./Success";
+import desktopImg from "../../public/illustration-sign-up-desktop.svg";
 
 export default function MainCard() {
   const [subscribe, setSubscribe] = useState(false);
@@ -47,10 +47,11 @@ export default function MainCard() {
                 type="email"
                 name="email"
                 placeholder="email@company.com"
+                required
                 className="border-reg-grey border px-4 py-2 w-full rounded-md"
               />
               <button
-                className="bg-drk-grey text-white px-4 py-2 rounded-md"
+                className="bg-drk-grey active:bg-grad-test text-white px-4 py-2 rounded-md"
                 type="submit"
               >
                 Subscribe to monthly newsletter

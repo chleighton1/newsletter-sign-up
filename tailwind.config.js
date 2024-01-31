@@ -21,9 +21,12 @@ module.exports = {
       "reg-grey": "hsl(231, 7%, 60%)",
       white: "hsl(0, 0%, 100%)",
       tomato: "hsl(4, 100%, 67%)",
+      // box-shadow: 0px 16px 32px 0px rgba(255, 97, 85, 0.50);
     },
     extend: {
       backgroundImage: {
+        "grad-test":
+          "var(--Gradient-1, linear-gradient(204deg, #FF6A3A 0%, #FF527B 100%))",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
