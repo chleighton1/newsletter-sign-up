@@ -5,6 +5,7 @@ export default function IconSmall(props) {
       width={props.width}
       height={props.height}
       viewBox="0 0 21 21"
+      className="min-w-5"
     >
       <g fill="none">
         <circle cx="10.5" cy="10.5" r="10.5" fill="#FF6155" />

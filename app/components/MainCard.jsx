@@ -10,6 +10,7 @@ import mobileImg from "../../public/illustration-sign-up-mobile.svg";
 export default function MainCard() {
   const [subscribe, setSubscribe] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [userEmail, setUserEmail] = useState("");
 
   const handleResize = () => {
     if (window.innerWidth < 720) {
@@ -27,35 +28,47 @@ export default function MainCard() {
     setSubscribe(!subscribe);
   }
 
+  function handleChange(e) {
+    setUserEmail(e.target.value);
+  }
+
   return (
     <>
       {isMobile ? (
         subscribe ? (
-          <Success handleClick={handleClick} email={"Test"} />
+          <Success
+            handleClick={handleClick}
+            email={userEmail}
+            isMobile={isMobile}
+          />
         ) : (
           <div className="flex flex-col bg-white w-full h-full">
             <div className="">
-              <Image src={mobileImg} className="w-full" />
+              <Image src={mobileImg} className="w-full" alt="Newsletter Logo" />
             </div>
             <div className="flex justify-between h-full flex-col p-8 text-xs text-char-grey">
               <h1 className="text-4xl font-bold text-char-grey mt-3">
                 Stay updated!
               </h1>
-              <p className="text-[16px] leading-relaxed">
+              <p className="text-[16px]">
                 Join 60,000+ product managers receiving monthly updates on:
               </p>
-              <ul className="text-[16px] leading-loose">
+              <ul className="leading-relaxed">
                 <li className="flex items-center gap-2 mb-1">
                   <IconSmall width={20} height={20} />
-                  <span>Product Discovery and building what matters</span>
+                  <span className="text-[16px]">
+                    Product Discovery and building what matters
+                  </span>
                 </li>
                 <li className="flex items-center gap-2 mb-1">
                   <IconSmall width={20} height={20} />
-                  <span>Measuring to ensure updates are a success</span>
+                  <span className="text-[16px]">
+                    Measuring to ensure updates are a success
+                  </span>
                 </li>
                 <li className="flex items-center gap-2">
                   <IconSmall width={20} height={20} />
-                  <span>And much more!</span>
+                  <span className="text-[16px]">And much more!</span>
                 </li>
               </ul>
               <form className="flex flex-col w-full" action={handleClick}>
@@ -68,6 +81,8 @@ export default function MainCard() {
                   placeholder="email@company.com"
                   required
                   className="border-reg-grey border px-4 py-2 h-14 w-full rounded-md mb-6"
+                  onChange={handleChange}
+                  value={userEmail}
                 />
                 <button
                   className="bg-drk-grey active:bg-grad-test text-white text-[16px] px-4 py-2 h-14 rounded-md"
@@ -80,11 +95,14 @@ export default function MainCard() {
           </div>
         )
       ) : subscribe ? (
-        <Success handleClick={handleClick} email={"Test"} />
+        <Success
+          handleClick={handleClick}
+          email={userEmail}
+          isMobile={isMobile}
+        />
       ) : (
-        <div className="flex bg-white w-3/5 p-4 rounded-3xl">
+        <div className="flex bg-white max-w-2xl p-4 rounded-3xl">
           <div className="flex basis-4/5 justify-center flex-col gap-5 mr-2 p-5 text-xs text-char-grey">
-            {/* Left Side */}
             <h1 className="text-4xl font-bold self-center text-char-grey">
               Stay updated!
             </h1>
@@ -113,6 +131,8 @@ export default function MainCard() {
                 placeholder="email@company.com"
                 required
                 className="border-reg-grey border px-4 py-2 w-full rounded-md"
+                onChange={handleChange}
+                value={userEmail}
               />
               <button
                 className="bg-drk-grey active:bg-grad-test text-white px-4 py-2 rounded-md"
@@ -123,7 +143,7 @@ export default function MainCard() {
             </form>
           </div>
           <div className="">
-            <Image src={desktopImg} className="" />
+            <Image src={desktopImg} className="" alt="Newsletter Logo" />
           </div>
         </div>
       )}
