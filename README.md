@@ -31,4 +31,4 @@ Users should be able to:
 ## Author
 
 - Website - [Charles Leighton](https://www.chleighton.live/)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/chleighton1)
+- Frontend Mentor - [@chleighton1](https://www.frontendmentor.io/profile/chleighton1)
