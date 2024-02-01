@@ -26,7 +26,7 @@ Users should be able to:
 
 - [React](https://reactjs.org/) - JS library
 - [Next.js](https://nextjs.org/) - React framework
-- [TailwindCSS] (https://tailwindcss.com/) - CSS framework
+- [TailwindCSS](https://tailwindcss.com/) - CSS framework
 
 ## Author
 
