@@ -20,7 +20,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site: (https://newsletter-sign-up-lemon.vercel.app/)
+- Live Site: (https://newsletter-sign-up-nine-gamma.vercel.app/)
 
 ### Built with
 
